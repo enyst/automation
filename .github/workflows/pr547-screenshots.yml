@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - evidence/extensions-pr-547-20261009
+    paths:
+      - targets.json
+      - capture.cjs
+      - .github/workflows/pr547-screenshots.yml
 
 permissions:
   contents: read
