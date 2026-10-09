@@ -9,7 +9,7 @@ async function main() {
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
     for (const target of targets) {
       await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      const card = page.locator(`#pullrequestreview-${target.reviewId}`);
+      const card = page.locator(`.timeline-comment-group#pullrequestreview-${target.reviewId}`);
       await card.waitFor({ state: 'visible', timeout: 60000 });
       const body = await card.innerText();
       if (!body.includes('LLM profile:') || !body.includes(target.model)) {
